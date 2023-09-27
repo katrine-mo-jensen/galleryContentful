@@ -1,1 +1,1 @@
-# galleriContentful
+# galleryContentful
