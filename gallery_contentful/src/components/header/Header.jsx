@@ -1,4 +1,6 @@
 import { useFetch } from "../../hooks/fetch/useFetch";
+import style from "../header/Header.module.scss";
+
 
 export const Header = () => {
   const { data } = useFetch();
@@ -10,9 +12,9 @@ export const Header = () => {
           <header key={index}>
             <h1>{item.fields.headerTitle}</h1>
             {item.fields.headerImage && (
-              <img src={`https:${item.fields.headerImage.fields.file.url}`} />
+              <img className= {style.HeaderImg} src={`https:${item.fields.headerImage.fields.file.url}`} />
             )}
-          </header>
+          </header> 
         );
       })}
     </>
