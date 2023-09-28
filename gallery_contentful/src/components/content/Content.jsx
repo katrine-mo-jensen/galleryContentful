@@ -15,7 +15,7 @@ export const Content = () => {
               {item.fields.imageGallery?.map((item, index) => {
                 return (
                   <div key={index}>
-                    <img src={`https:${item.fields.file.url}`} />
+                    <img className= {style.Images} src={`https:${item.fields.file.url}`} />
                     <p>{item.fields.description}</p>
                   </div>
                 )
