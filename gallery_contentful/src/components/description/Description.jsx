@@ -1,18 +1,19 @@
 import { useFetch } from "../../hooks/fetch/useFetch";
-import style from "../description/Description.module.scss"
+import style from "../description/Description.module.scss";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export const Description = () => {
   const { data } = useFetch();
 
   return (
     <>
-    {data?.item.map((item, index) => {
-      return(
-        <article className={style.description}>
-
-        </article>
-      )
-    })}
+      {data?.items.map((item, index) => {
+        return (
+          <section key={index}>
+            {documentToReactComponents(item.fields.galleryDescription)}
+          </section>
+        );
+      })}
     </>
   );
 };
