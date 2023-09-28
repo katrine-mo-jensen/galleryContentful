@@ -11,7 +11,13 @@ export const Content = () => {
             <header key={index}>
               <h2>{item.fields.galleryTitle}</h2>
               {item.fields.imageGallery?.map((item, index) => {
-                return <img src={`https:${item.fields.file.url}`} />;
+                return (
+                  <div key={index}>
+                    <img src={`https:${item.fields.file.url}`} />
+                    <p>{item.fields.description}</p>
+                  </div>
+                )
+                
               })}
             </header>
           );
