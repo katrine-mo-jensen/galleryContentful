@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
+import * as contentful from "contentful";
 
-export function useFetch(url) {
+export function useFetch() {
   const [data, setData] = useState(null);
 
+  const client = contentful.createClient({
+    space: `${import.meta.env.VITE_PUBLIC_SPACE_ID}`,
+    environment: "master",
+    accessToken: `${import.meta.env.VITE_PUBLIC_ACCESS_TOKEN}`,
+  });
+
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setData(data))
-      .catch((err) => console.error(err));
-  }, [url]);
+    client
+      .getEntries()
+      .then((entry) => setData(entry))
+      .catch(console.error);
+  }, []);
+
   console.log("Data", data);
-  return [data];
+
+  return { data };
 }
