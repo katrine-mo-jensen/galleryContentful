@@ -1,5 +1,4 @@
 import { useFetch } from "../../hooks/fetch/useFetch";
-import style from "../description/Description.module.scss";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export const Description = () => {
