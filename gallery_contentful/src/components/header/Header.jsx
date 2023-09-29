@@ -10,7 +10,7 @@ export const Header = () => {
       {data?.items.map((item, index) => {
         return (
           <header key={index}>
-            <h1>{item.fields.headerTitle}</h1>
+            <h1 className= {style.headerTitle}>{item.fields.headerTitle}</h1>
             {item.fields.headerImage && (
               <img className= {style.HeaderImg} src={`https:${item.fields.headerImage.fields.file.url}`} />
             )}
