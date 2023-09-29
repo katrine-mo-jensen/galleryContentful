@@ -11,7 +11,7 @@ export const Content = () => {
         {data?.items.map((item, index) => {
           return (
             <header key={index}>
-              <h2>{item.fields.galleryTitle}</h2>
+              <h2 className= {style.title}>{item.fields.galleryTitle}</h2>
               {item.fields.imageGallery?.map((item, index) => {
                 return (
                   <div key={index}>
